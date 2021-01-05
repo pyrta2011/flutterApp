@@ -34,18 +34,34 @@ class StarWidget extends StatefulWidget {
 }
 
 class _StateStarWidget extends State {
+  bool _isFavorite = true;
+  int _favoriteCount = 41;
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
         Container(
-          padding: EdgeInsets.only(right: 5),
-          child: Icon(Icons.star),
-        ),
+            child: IconButton(
+                icon:
+                    (_isFavorite ? Icon(Icons.star) : Icon(Icons.star_border)),
+                color: Colors.red,
+                onPressed: _toggleFavorite)),
         Container(
-          child: Text("41"),
+          child: Text("$_favoriteCount"),
         )
       ],
     );
+  }
+
+  _toggleFavorite() {
+    setState(() {
+      if (_isFavorite) {
+        _favoriteCount -= 1;
+        _isFavorite = false;
+      } else {
+        _favoriteCount += 1;
+        _isFavorite = true;
+      }
+    });
   }
 }
