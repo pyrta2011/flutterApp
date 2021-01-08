@@ -1,4 +1,5 @@
 import "package:flutter/material.dart";
+import "package:share/share.dart";
 
 class ButtonRow extends StatelessWidget {
   @override
@@ -19,12 +20,23 @@ class ButtonRow extends StatelessWidget {
                 color: Colors.white,
               ),
               data: "ROUTE"),
-          _buildButtonRow(
-              icon: Icon(
-                Icons.share,
-                color: Colors.white,
+          Column(
+            children: [
+              FloatingActionButton(
+                onPressed: () => Share.share(
+                    "Look at this, Lake Oeschinen lies at the foot of the Blüemlisalp in the Bernese"),
+                child: Icon(Icons.share),
               ),
-              data: "SHARE"),
+              Padding(
+                padding: EdgeInsets.only(top: 10),
+                child: Text(
+                  "SHARE",
+                  style: TextStyle(
+                      color: Colors.blue, fontWeight: FontWeight.bold),
+                ),
+              )
+            ],
+          ),
         ],
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
       ),
