@@ -34,8 +34,8 @@ class StarWidget extends StatefulWidget {
 }
 
 class _StateStarWidget extends State {
-  bool _isFavorite = true;
-  int _favoriteCount = 41;
+  bool _isFavorite = false;
+  int _favoriteCount = 40;
   @override
   Widget build(BuildContext context) {
     return Row(

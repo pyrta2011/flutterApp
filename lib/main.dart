@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'components/button.dart';
 import 'components/title.dart';
 import 'components/image.dart';
 
@@ -10,7 +11,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         body: ListView(
-          children: [ImageWidget(), TitleWidget()],
+          children: [ImageWidget(), TitleWidget(), ButtonRow()],
         ),
       ),
     );
