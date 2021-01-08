@@ -1,5 +1,6 @@
 import "package:flutter/material.dart";
 import "package:share/share.dart";
+import "package:url_launcher/url_launcher.dart";
 
 class ButtonRow extends StatelessWidget {
   @override
@@ -8,12 +9,22 @@ class ButtonRow extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 40, vertical: 0),
       child: Row(
         children: [
-          _buildButtonRow(
-              icon: Icon(
-                Icons.call,
-                color: Colors.white,
+          Column(
+            children: [
+              FloatingActionButton(
+                onPressed: () => launch("tel:+7 950 158 4295"),
+                child: Icon(Icons.call),
               ),
-              data: "CALL"),
+              Padding(
+                padding: EdgeInsets.only(top: 10),
+                child: Text(
+                  "CALL",
+                  style: TextStyle(
+                      color: Colors.blue, fontWeight: FontWeight.bold),
+                ),
+              )
+            ],
+          ),
           _buildButtonRow(
               icon: Icon(
                 Icons.near_me,
